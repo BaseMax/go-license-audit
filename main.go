@@ -18,7 +18,7 @@ func main() {
 		outputDir    = flag.String("output", ".", "Output directory for reports")
 		strictMode   = flag.Bool("strict", false, "Exit with error code if incompatible licenses found")
 	)
-	
+
 	flag.Parse()
 
 	// Load configuration

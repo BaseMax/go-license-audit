@@ -6,7 +6,7 @@ type Dependency struct {
 	Version     string `json:"version"`
 	License     string `json:"license"`
 	LicenseType string `json:"license_type"` // detected, unknown, etc.
-	Ecosystem   string `json:"ecosystem"`    // go, npm, pypi
+	Ecosystem   string `json:"ecosystem"`    // go, npm, pypi, packagist
 	Risk        string `json:"risk"`         // safe, risky, incompatible
 }
 
@@ -26,4 +26,5 @@ const (
 	ProjectTypeGo     ProjectType = "go"
 	ProjectTypeNodeJS ProjectType = "nodejs"
 	ProjectTypePython ProjectType = "python"
+	ProjectTypePHP    ProjectType = "php"
 )

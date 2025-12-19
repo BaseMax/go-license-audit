@@ -1,0 +1,31 @@
+{
+  "incompatible_licenses": [
+    "GPL-2.0",
+    "GPL-3.0",
+    "AGPL-3.0",
+    "AGPL-1.0",
+    "LGPL-2.0",
+    "LGPL-2.1",
+    "LGPL-3.0",
+    "SSPL",
+    "Commons Clause"
+  ],
+  "risky_licenses": [
+    "MPL-2.0",
+    "EPL-1.0",
+    "EPL-2.0",
+    "CDDL-1.0",
+    "CPL-1.0",
+    "OSL-3.0"
+  ],
+  "allowed_licenses": [
+    "MIT",
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "0BSD",
+    "Unlicense",
+    "CC0-1.0"
+  ]
+}
