@@ -186,7 +186,7 @@ func TestComposerJSONParser(t *testing.T) {
 
 	// Verify none of the dependencies are PHP or extensions
 	for _, dep := range deps {
-		if dep.Name == "php" || dep.Name[:4] == "ext-" {
+		if dep.Name == "php" || (len(dep.Name) >= 4 && dep.Name[:4] == "ext-") {
 			t.Errorf("Should not include PHP or extensions, got: %s", dep.Name)
 		}
 		if dep.Ecosystem != "packagist" {

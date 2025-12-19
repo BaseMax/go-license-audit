@@ -182,6 +182,11 @@ func (p *ComposerJSONParser) Detect(projectPath string) bool {
 	return err == nil
 }
 
+// shouldSkipPHPPackage returns true if the package should be skipped (PHP itself or extensions)
+func shouldSkipPHPPackage(name string) bool {
+	return name == "php" || strings.HasPrefix(name, "ext-")
+}
+
 func (p *ComposerJSONParser) Parse(projectPath string) ([]types.Dependency, error) {
 	filePath := filepath.Join(projectPath, "composer.json")
 	data, err := os.ReadFile(filePath)
@@ -200,8 +205,7 @@ func (p *ComposerJSONParser) Parse(projectPath string) ([]types.Dependency, erro
 
 	var deps []types.Dependency
 	for name, version := range composer.Require {
-		// Skip PHP itself and extensions
-		if name == "php" || strings.HasPrefix(name, "ext-") {
+		if shouldSkipPHPPackage(name) {
 			continue
 		}
 		deps = append(deps, types.Dependency{
@@ -211,8 +215,7 @@ func (p *ComposerJSONParser) Parse(projectPath string) ([]types.Dependency, erro
 		})
 	}
 	for name, version := range composer.RequireDev {
-		// Skip PHP itself and extensions
-		if name == "php" || strings.HasPrefix(name, "ext-") {
+		if shouldSkipPHPPackage(name) {
 			continue
 		}
 		deps = append(deps, types.Dependency{
